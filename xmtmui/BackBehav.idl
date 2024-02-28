@@ -1,0 +1,8 @@
+namespace xmtmui
+{
+    [default_interface]
+    runtimeclass BackBehav : Windows.UI.Xaml.Controls.Page
+    {
+        BackBehav();
+    }
+}

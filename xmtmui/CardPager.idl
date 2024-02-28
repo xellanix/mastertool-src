@@ -1,0 +1,28 @@
+namespace xmtmui
+{
+    [default_interface]
+    runtimeclass BooleanToStyleConverter : Windows.UI.Xaml.Data.IValueConverter
+    {
+        BooleanToStyleConverter();
+
+        [noexcept]
+        Windows.UI.Xaml.Style FalseStyle;
+        [noexcept]
+        Windows.UI.Xaml.Style TrueStyle;
+    }
+
+    [default_interface]
+    runtimeclass CardPager : Windows.UI.Xaml.Controls.UserControl
+    {
+        CardPager();
+        UInt32 NumberOfCards;
+        UInt32 CurrentIndex;
+        UInt32 MaxVisibleIndicator;
+        Boolean IsSelected;
+        Boolean ShowNavigationButton;
+
+        Windows.Foundation.Collections.IObservableVector<Object> CardItems{ get; };
+
+        event Windows.Foundation.EventHandler<UInt32> CurrentIndexChanged;
+    }
+}

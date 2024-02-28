@@ -1,0 +1,24 @@
+namespace smbrui
+{
+    [default_interface]
+    runtimeclass ResultData
+    {
+        ResultData();
+        ResultData(UInt32 id, String title, String description, Boolean canRun, Boolean canAdmin, Boolean canReveal);
+
+        UInt32 ResultID;
+        String Title;
+        String Description;
+        Boolean CanRun;
+        Boolean CanAdmin;
+        Boolean CanReveal;
+    }
+
+    [default_interface]
+    runtimeclass MainWindow : Windows.UI.Xaml.Controls.Page
+    {
+        MainWindow();
+        
+        Windows.Foundation.Collections.IObservableVector<Object> Results{ get; };
+    }
+}

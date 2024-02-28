@@ -1,0 +1,8 @@
+namespace xmtmui
+{
+    [default_interface]
+    runtimeclass About : Windows.UI.Xaml.Controls.Page
+    {
+        About();
+    }
+}

@@ -1,0 +1,19 @@
+namespace xmtmui
+{
+    runtimeclass ImageItem
+    {
+        ImageItem();
+        ImageItem(String itemName, String itemPath);
+
+        String ItemName;
+        String ItemPath;
+    }
+
+    [default_interface]
+    runtimeclass ImageMerger : Windows.UI.Xaml.Controls.Page
+    {
+        ImageMerger();
+        
+        Windows.Foundation.Collections.IObservableVector<Object> ImageItems;
+    }
+}

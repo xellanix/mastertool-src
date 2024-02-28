@@ -1,0 +1,8 @@
+namespace xmtmui
+{
+    [default_interface]
+    runtimeclass MouseFocus : Windows.UI.Xaml.Controls.Page
+    {
+        MouseFocus();
+    }
+}

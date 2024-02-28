@@ -1,0 +1,20 @@
+namespace xmtmui
+{
+    enum FreeSpaceJustification
+    {
+        Item = 0,
+        Space = 1
+    };
+
+    [default_interface]
+    runtimeclass ItemsGrid : Windows.UI.Xaml.Controls.UserControl
+    {
+        ItemsGrid();
+        Windows.Foundation.Collections.IObservableVector<Windows.UI.Xaml.FrameworkElement> ItemControls;
+        Int32 MaxItemInRow{ get; };
+        Double ItemActualWidth{ get; };
+        Double ItemMinWidth;
+        Double RowMinSpace;
+        Double ColumnMinSpace;
+    }
+}

@@ -1,0 +1,97 @@
+﻿<Page
+    x:Class="xmtmui.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:xmtmui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:animated="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="NavigationViewContentGridBorderBrush" Color="Transparent"/>
+                    <SolidColorBrush x:Key="NavigationViewContentBackground" Color="Transparent"/>
+                    <x:String x:Key="ImageMergerIcon">ms-appx:///Assets/Icons/ImageMerger_Final_L.png</x:String>
+                    <x:String x:Key="AllFeaturesIcon">ms-appx:///Assets/Icons/AllFeatures_Final_L.png</x:String>
+                    <x:String x:Key="AboutIcon">ms-appx:///Assets/Icons/About_Final_L.png</x:String>
+                    <x:String x:Key="MouseFocusIcon">ms-appx:///Assets/Icons/MouseFocus_Final_L.png</x:String>
+                    <x:String x:Key="QuickRenameIcon">ms-appx:///Assets/Icons/QuickRename_Final_L.png</x:String>
+                    <x:String x:Key="SmartBarIcon">ms-appx:///Assets/Icons/SmartBar_Final_L.png</x:String>
+                    <x:String x:Key="BackBehavIcon">ms-appx:///Assets/Icons/BackBehav_Final_L.png</x:String>
+                    <x:String x:Key="BatteryManagerIcon">ms-appx:///Assets/Icons/BatteryManager_Final_L.png</x:String>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key="NavigationViewContentGridBorderBrush" Color="Transparent"/>
+                    <SolidColorBrush x:Key="NavigationViewContentBackground" Color="Transparent"/>
+                    <x:String x:Key="ImageMergerIcon">ms-appx:///Assets/Icons/ImageMerger_Final_D.png</x:String>
+                    <x:String x:Key="AllFeaturesIcon">ms-appx:///Assets/Icons/AllFeatures_Final_D.png</x:String>
+                    <x:String x:Key="AboutIcon">ms-appx:///Assets/Icons/About_Final_D.png</x:String>
+                    <x:String x:Key="MouseFocusIcon">ms-appx:///Assets/Icons/MouseFocus_Final_D.png</x:String>
+                    <x:String x:Key="QuickRenameIcon">ms-appx:///Assets/Icons/QuickRename_Final_D.png</x:String>
+                    <x:String x:Key="SmartBarIcon">ms-appx:///Assets/Icons/SmartBar_Final_D.png</x:String>
+                    <x:String x:Key="BackBehavIcon">ms-appx:///Assets/Icons/BackBehav_Final_D.png</x:String>
+                    <x:String x:Key="BatteryManagerIcon">ms-appx:///Assets/Icons/BatteryManager_Final_D.png</x:String>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <muxc:NavigationView x:Name="MainNavView" IsSettingsVisible="False" AlwaysShowHeader="True" SelectionFollowsFocus="Disabled" Header="{Binding Path=SelectedItem.Tag, RelativeSource={RelativeSource Mode=Self}}" CompactModeThresholdWidth="0" IsBackEnabled="False" IsBackButtonVisible="Collapsed" SelectionChanged="NavigatePage" Loaded="NavViewLoaded">
+        <muxc:NavigationView.MenuItems>
+            <muxc:NavigationViewItem Tag="All Features" Content="{Binding Path=Tag, Mode=OneTime, RelativeSource={RelativeSource Mode=Self}}">
+                <muxc:NavigationViewItem.Icon>
+                    <BitmapIcon UriSource="{ThemeResource AllFeaturesIcon}" ShowAsMonochrome="False"/>
+                </muxc:NavigationViewItem.Icon>
+            </muxc:NavigationViewItem>
+            <muxc:NavigationViewItemSeparator/>
+            <muxc:NavigationViewItemHeader Content="Features &amp; Settings" FontWeight="SemiBold"/>
+            <muxc:NavigationViewItem Tag="Battery Manager" Content="{Binding Path=Tag, Mode=OneTime, RelativeSource={RelativeSource Mode=Self}}">
+                <muxc:NavigationViewItem.Icon>
+                    <BitmapIcon UriSource="{ThemeResource BatteryManagerIcon}" ShowAsMonochrome="False"/>
+                </muxc:NavigationViewItem.Icon>
+            </muxc:NavigationViewItem>
+            <muxc:NavigationViewItem Tag="Image Merger" Content="{Binding Path=Tag, Mode=OneTime, RelativeSource={RelativeSource Mode=Self}}">
+                <muxc:NavigationViewItem.Icon>
+                    <BitmapIcon UriSource="{ThemeResource ImageMergerIcon}" ShowAsMonochrome="False"/>
+                </muxc:NavigationViewItem.Icon>
+            </muxc:NavigationViewItem>
+            <muxc:NavigationViewItem Tag="Mouse Focus" Content="{Binding Path=Tag, Mode=OneTime, RelativeSource={RelativeSource Mode=Self}}">
+                <muxc:NavigationViewItem.Icon>
+                    <BitmapIcon UriSource="{ThemeResource MouseFocusIcon}" ShowAsMonochrome="False"/>
+                </muxc:NavigationViewItem.Icon>
+            </muxc:NavigationViewItem>
+            <muxc:NavigationViewItem Tag="Quick Rename" Content="{Binding Path=Tag, Mode=OneTime, RelativeSource={RelativeSource Mode=Self}}">
+                <muxc:NavigationViewItem.Icon>
+                    <BitmapIcon UriSource="{ThemeResource QuickRenameIcon}" ShowAsMonochrome="False"/>
+                </muxc:NavigationViewItem.Icon>
+            </muxc:NavigationViewItem>
+            <muxc:NavigationViewItem Tag="Smart Bar" Content="{Binding Path=Tag, Mode=OneTime, RelativeSource={RelativeSource Mode=Self}}">
+                <muxc:NavigationViewItem.Icon>
+                    <BitmapIcon UriSource="{ThemeResource SmartBarIcon}" ShowAsMonochrome="False"/>
+                </muxc:NavigationViewItem.Icon>
+            </muxc:NavigationViewItem>
+        </muxc:NavigationView.MenuItems>
+        <muxc:NavigationView.FooterMenuItems>
+            <muxc:NavigationViewItem Tag="Background Behaviors" Content="{Binding Path=Tag, Mode=OneTime, RelativeSource={RelativeSource Mode=Self}}">
+                <muxc:NavigationViewItem.Icon>
+                    <BitmapIcon UriSource="{ThemeResource BackBehavIcon}" ShowAsMonochrome="False"/>
+                </muxc:NavigationViewItem.Icon>
+            </muxc:NavigationViewItem>
+            <muxc:NavigationViewItem Tag="About" Content="{Binding Path=Tag, Mode=OneTime, RelativeSource={RelativeSource Mode=Self}}">
+                <muxc:NavigationViewItem.Icon>
+                    <BitmapIcon UriSource="{ThemeResource AboutIcon}" ShowAsMonochrome="False"/>
+                </muxc:NavigationViewItem.Icon>
+            </muxc:NavigationViewItem>
+        </muxc:NavigationView.FooterMenuItems>
+        <Frame x:Name="ContentFrame" Padding="20,20,0,0" IsNavigationStackEnabled="False">
+            <Frame.ContentTransitions>
+                <TransitionCollection>
+                    <NavigationThemeTransition/>
+                </TransitionCollection>
+            </Frame.ContentTransitions>
+        </Frame>
+    </muxc:NavigationView>
+</Page>

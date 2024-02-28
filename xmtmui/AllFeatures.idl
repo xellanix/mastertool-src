@@ -1,0 +1,8 @@
+namespace xmtmui
+{
+    [default_interface]
+    runtimeclass AllFeatures : Windows.UI.Xaml.Controls.Page
+    {
+        AllFeatures();
+    }
+}

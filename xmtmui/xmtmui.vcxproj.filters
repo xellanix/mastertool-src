@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Midl Include="App.idl" />
+    <Midl Include="Lottie\UnderConstruction.idl">
+      <Filter>Source Files</Filter>
+    </Midl>
+    <Midl Include="Lottie\AddFile.idl">
+      <Filter>Source Files</Filter>
+    </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App.cpp" />
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lottie\UnderConstruction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lottie\AddFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Wide310x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\LockScreenLogo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Icons\ImageMerger_Final_D.png">
+      <Filter>Assets\Icons</Filter>
+    </Image>
+    <Image Include="Assets\Icons\ImageMerger_Final_L.png">
+      <Filter>Assets\Icons</Filter>
+    </Image>
+    <Image Include="Assets\Icons\About_Final_D.png">
+      <Filter>Assets\Icons</Filter>
+    </Image>
+    <Image Include="Assets\Icons\About_Final_L.png">
+      <Filter>Assets\Icons</Filter>
+    </Image>
+    <Image Include="Assets\Icons\AllFeatures_Final_D.png">
+      <Filter>Assets\Icons</Filter>
+    </Image>
+    <Image Include="Assets\Icons\AllFeatures_Final_L.png">
+      <Filter>Assets\Icons</Filter>
+    </Image>
+    <Image Include="Assets\Icons\MouseFocus_Final_D.png">
+      <Filter>Assets\Icons</Filter>
+    </Image>
+    <Image Include="Assets\Icons\MouseFocus_Final_L.png">
+      <Filter>Assets\Icons</Filter>
+    </Image>
+    <Image Include="Assets\Icons\QuickRename_Final_D.png">
+      <Filter>Assets\Icons</Filter>
+    </Image>
+    <Image Include="Assets\Icons\QuickRename_Final_L.png">
+      <Filter>Assets\Icons</Filter>
+    </Image>
+    <Image Include="Assets\Icons\SmartBar_Final_D.png">
+      <Filter>Assets\Icons</Filter>
+    </Image>
+    <Image Include="Assets\Icons\SmartBar_Final_L.png">
+      <Filter>Assets\Icons</Filter>
+    </Image>
+    <Image Include="Assets\Icons\BackBehav_Final_D.png">
+      <Filter>Assets\Icons</Filter>
+    </Image>
+    <Image Include="Assets\Icons\BackBehav_Final_L.png">
+      <Filter>Assets\Icons</Filter>
+    </Image>
+    <Image Include="Assets\Icons\BatteryManager_Final_D.png">
+      <Filter>Assets\Icons</Filter>
+    </Image>
+    <Image Include="Assets\Icons\BatteryManager_Final_L.png">
+      <Filter>Assets\Icons</Filter>
+    </Image>
+    <Image Include="Assets\Banner\Update.png">
+      <Filter>Assets\Banner</Filter>
+    </Image>
+    <Image Include="Assets\Banner\Welcome.png">
+      <Filter>Assets\Banner</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{e48dc53e-40b1-40cb-970a-f89935452892}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pages">
+      <UniqueIdentifier>{80d4a26a-bb3a-4848-ad98-cc8958a744af}</UniqueIdentifier>
+      <Extensions>xaml</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{f6bc6f44-0db3-4ecd-ba4a-e5efb09322ba}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{74f6813b-de35-484b-aa32-17ef3ac1c58b}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Pages\Views">
+      <UniqueIdentifier>{dab91929-851d-4a7e-8c18-84ddbdcac576}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UserControls">
+      <UniqueIdentifier>{f14a80db-144b-41ed-a6ac-b0a19889881f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Icons">
+      <UniqueIdentifier>{4bf70edd-590d-4a76-a221-8ebac8fc739e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{db5e001c-1a5d-4b98-be9b-099dc37c6dc9}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Assets\Banner">
+      <UniqueIdentifier>{3969cbef-86a9-4857-b35b-152aefa510c4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PropertySheet.props">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="placeholder.exe">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="packages.config">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="xmtmui_TemporaryKey.pfx">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Filter>Pages</Filter>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app.base.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lottie\UnderConstruction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\xellanix.objects.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lottie\AddFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DownloadFileHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\utf8cvt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AppVersionInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="readme.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <Filter>Resource Files</Filter>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainWindow.xaml">
+      <Filter>Pages</Filter>
+    </Page>
+    <Page Include="GlobalStyleResource.xaml">
+      <Filter>Pages</Filter>
+    </Page>
+    <Page Include="AllFeatures.xaml">
+      <Filter>Pages\Views</Filter>
+    </Page>
+    <Page Include="ImageMerger.xaml">
+      <Filter>Pages\Views</Filter>
+    </Page>
+    <Page Include="MouseFocus.xaml">
+      <Filter>Pages\Views</Filter>
+    </Page>
+    <Page Include="SmartBar.xaml">
+      <Filter>Pages\Views</Filter>
+    </Page>
+    <Page Include="QuickRename.xaml">
+      <Filter>Pages\Views</Filter>
+    </Page>
+    <Page Include="About.xaml">
+      <Filter>Pages\Views</Filter>
+    </Page>
+    <Page Include="ItemsGrid.xaml">
+      <Filter>UserControls</Filter>
+    </Page>
+    <Page Include="BackBehav.xaml">
+      <Filter>Pages\Views</Filter>
+    </Page>
+    <Page Include="BatteryManager.xaml">
+      <Filter>Pages\Views</Filter>
+    </Page>
+    <Page Include="BannerControl.xaml">
+      <Filter>UserControls</Filter>
+    </Page>
+    <Page Include="CardPager.xaml">
+      <Filter>UserControls</Filter>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="xmtmui.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

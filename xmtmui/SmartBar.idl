@@ -1,0 +1,10 @@
+namespace xmtmui
+{
+    [default_interface]
+    runtimeclass SmartBar : Windows.UI.Xaml.Controls.Page
+    {
+        SmartBar();
+        
+        Windows.Foundation.Collections.IObservableVector<Object> AvailableDrives;
+    }
+}

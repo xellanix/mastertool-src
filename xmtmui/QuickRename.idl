@@ -1,0 +1,22 @@
+namespace xmtmui
+{
+    runtimeclass ExplorerItem : Windows.UI.Xaml.Data.INotifyPropertyChanged
+    {
+        ExplorerItem();
+        ExplorerItem(String itemName, String itemPath, String itemIcon, String itemRenamed, Boolean isRemember);
+
+        String ItemName;
+        String ItemPath;
+        String ItemIcon;
+        String ItemRenamed;
+        Boolean IsRemember;
+    }
+
+    [default_interface]
+    runtimeclass QuickRename : Windows.UI.Xaml.Controls.Page
+    {
+        QuickRename();
+
+        Windows.Foundation.Collections.IObservableVector<Object> ExplorerItems;
+    }
+}

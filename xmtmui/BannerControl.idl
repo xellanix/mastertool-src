@@ -1,0 +1,19 @@
+namespace xmtmui
+{
+    runtimeclass BannerChild
+    {
+        BannerChild();
+        BannerChild(String imagePath, Windows.UI.Xaml.UIElement bannerContent);
+
+        String ImagePath;
+        Windows.UI.Xaml.UIElement BannerContent;
+    }
+
+    [default_interface]
+    runtimeclass BannerControl : Windows.UI.Xaml.Controls.UserControl
+    {
+        BannerControl();
+        Windows.Foundation.Collections.IObservableVector<BannerChild> BannerItems;
+        UInt32 SelectedBannerIndex;
+    }
+}

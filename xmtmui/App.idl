@@ -1,0 +1,10 @@
+namespace xmtmui
+{
+    [default_interface]
+    runtimeclass App : Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication
+    {
+        App();
+        
+        void DeleteUpdateFile();
+    }
+}

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pdftools", "pdftools.csproj", "{8F599EF4-94BE-4A2B-84A4-17BE2D89B9EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F599EF4-94BE-4A2B-84A4-17BE2D89B9EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F599EF4-94BE-4A2B-84A4-17BE2D89B9EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F599EF4-94BE-4A2B-84A4-17BE2D89B9EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F599EF4-94BE-4A2B-84A4-17BE2D89B9EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF342ECA-6172-4E59-879F-2CA8A944CFE8}
+	EndGlobalSection
+EndGlobal

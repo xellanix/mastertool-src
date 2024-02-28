@@ -1,0 +1,117 @@
+﻿<Page
+    x:Class="xmtmui.BatteryManager"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:xmtmui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d" Loaded="PageLoaded" Unloaded="Pageunloaded">
+
+    <Grid Padding="36,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <muxc:InfoBar Title="Note: " 
+                          Message="This feature will only work if it is allowed to run in the background." 
+                          Severity="Informational" IsOpen="True" 
+                          IsClosable="True" Margin="0,0,20,20"
+                          Background="{ThemeResource ExpanderHeaderBackground}"
+                          BorderBrush="{ThemeResource ExpanderContentBorderBrush}"
+                          Visibility="{Binding IsOpen, RelativeSource={RelativeSource Mode=Self}}">
+                <muxc:InfoBar.ActionButton>
+                    <Button Content="Background Behaviors" Click="NavToBackBehav"/>
+                </muxc:InfoBar.ActionButton>
+            </muxc:InfoBar>
+            <muxc:InfoBar x:Name="NoBatInfo" x:Load="False" Title="Error: " 
+                          Message="No battery was found in this device. Any settings in this section may not have any effect." 
+                          Severity="Error" IsOpen="False" 
+                          IsClosable="False" Margin="0,0,20,20"
+                          Visibility="{Binding IsOpen, RelativeSource={RelativeSource Mode=Self}}">
+            </muxc:InfoBar>
+        </StackPanel>
+        
+        <ScrollViewer HorizontalScrollMode="Disabled" Padding="0,0,20,20" Grid.Row="1">
+            <StackPanel>
+                <StackPanel.ChildrenTransitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition IsStaggeringEnabled="True"/>
+                    </TransitionCollection>
+                </StackPanel.ChildrenTransitions>
+                <Grid Style="{StaticResource ExpanderGrid}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Viewbox Width="20" Height="20" HorizontalAlignment="Left">
+                        <Canvas Height="20" Width="20">
+                            <Path Fill="{ThemeResource ColorDark1}" Data="M18.75,8.12H17.5V6.75c0-1.66-1.34-3-3-3H3c-1.66,0-3,1.34-3,3v6.5c0,1.66,1.34,3,3,3h11.5  c1.66,0,3-1.34,3-3v-1.38h1.25c0.69,0,1.25-0.56,1.25-1.25V9.38C20,8.68,19.44,8.12,18.75,8.12z" />
+                            <Path Fill="#1A000000" Data="M3.25,15.5c-1.38,0-2.5-1.12-2.5-2.5V7c0-1.38,1.12-2.5,2.5-2.5h11c1.38,0,2.5,1.12,2.5,2.5v6  c0,1.38-1.12,2.5-2.5,2.5H3.25z" />
+                            <Path Fill="#14000000" Data="M3.25,15c-1.1,0-2-0.9-2-2V7c0-1.1,0.9-2,2-2h11c1.1,0,2,0.9,2,2v6c0,1.1-0.9,2-2,2H3.25z" />
+                            <Path Fill="#FF99EBFF" Data="M3.25,14.5c-0.83,0-1.5-0.67-1.5-1.5V7c0-0.83,0.67-1.5,1.5-1.5h11c0.83,0,1.5,0.67,1.5,1.5v6  c0,0.83-0.67,1.5-1.5,1.5H3.25z" />
+                            <Path Fill="#1A000000" Data="M13.02,11.75c-0.17,0-0.34-0.03-0.52-0.1c-0.2-0.08-0.36-0.18-0.49-0.32L8.09,7.37  c-0.35-0.35-0.62-0.76-0.8-1.21C7.1,5.7,7,5.21,7,4.72c0-0.51,0.1-1,0.29-1.45c0.19-0.44,0.45-0.84,0.79-1.17  c0.33-0.33,0.72-0.6,1.17-0.8C9.7,1.1,10.18,1,10.69,1c0.35,0,0.67,0.04,0.96,0.12c0.3,0.08,0.58,0.2,0.83,0.35  c0.18,0.11,0.35,0.23,0.51,0.36c0.16-0.13,0.33-0.25,0.51-0.35c0.26-0.15,0.53-0.27,0.82-0.34c0.29-0.08,0.61-0.12,0.95-0.12  c0.51,0,1,0.1,1.46,0.3c0.45,0.2,0.84,0.47,1.18,0.8c0.33,0.34,0.6,0.73,0.79,1.19C18.9,3.76,19,4.25,19,4.76  c0,0.49-0.09,0.97-0.28,1.42c-0.19,0.45-0.46,0.86-0.8,1.21l-3.9,3.94C13.76,11.6,13.4,11.75,13.02,11.75z" />
+                            <Path Fill="#14000000" Data="M13.02,11.25c-0.11,0-0.22-0.02-0.34-0.07c-0.13-0.05-0.23-0.12-0.31-0.2L8.44,7.02  c-0.3-0.3-0.53-0.66-0.7-1.05C7.58,5.57,7.5,5.15,7.5,4.72c0-0.44,0.08-0.86,0.25-1.25c0.17-0.38,0.39-0.73,0.68-1.02  c0.29-0.29,0.63-0.52,1.01-0.69c0.39-0.17,0.81-0.26,1.25-0.26c0.3,0,0.58,0.03,0.83,0.1c0.25,0.07,0.49,0.17,0.71,0.29  c0.21,0.12,0.4,0.27,0.59,0.43c0.06,0.05,0.12,0.1,0.18,0.16c0.06-0.05,0.12-0.11,0.17-0.16c0.19-0.16,0.38-0.31,0.59-0.43  c0.22-0.13,0.45-0.23,0.7-0.29c0.25-0.07,0.52-0.1,0.82-0.1c0.44,0,0.86,0.09,1.26,0.26c0.39,0.17,0.73,0.41,1.02,0.7  c0.29,0.29,0.52,0.64,0.69,1.03c0.17,0.39,0.26,0.82,0.26,1.26c0,0.43-0.08,0.84-0.24,1.23c-0.16,0.39-0.39,0.74-0.69,1.05  l-3.9,3.94C13.49,11.16,13.27,11.25,13.02,11.25z" />
+                            <Path Fill="#FF0091F8" Data="M15.27,2.01c0.37,0,0.72,0.07,1.05,0.22c0.33,0.15,0.62,0.34,0.87,0.59c0.25,0.25,0.44,0.54,0.59,0.88  C17.93,4.03,18,4.39,18,4.76c0,0.36-0.07,0.71-0.2,1.04c-0.14,0.33-0.33,0.63-0.59,0.89l-3.9,3.94c-0.08,0.08-0.18,0.12-0.3,0.12  c-0.05,0-0.1-0.01-0.16-0.04c-0.06-0.02-0.1-0.05-0.14-0.09L8.8,6.66C8.54,6.41,8.35,6.11,8.21,5.77C8.07,5.44,8,5.09,8,4.72  c0-0.37,0.07-0.73,0.21-1.06C8.35,3.33,8.55,3.04,8.79,2.8s0.53-0.44,0.86-0.58C9.97,2.07,10.32,2,10.69,2  c0.26,0,0.49,0.03,0.7,0.08c0.21,0.06,0.4,0.14,0.58,0.24c0.18,0.11,0.35,0.23,0.51,0.38c0.16,0.15,0.33,0.31,0.51,0.48  c0.17-0.18,0.34-0.33,0.5-0.48c0.16-0.14,0.33-0.27,0.51-0.37c0.18-0.11,0.37-0.19,0.58-0.24S15.02,2.01,15.27,2.01z" />
+                        </Canvas>
+                    </Viewbox>
+                    <Button Content="Enable Battery Manager" Style="{StaticResource TextBlockManipulator}" Grid.Column="1"/>
+                    <ToggleSwitch x:Name="EnableBatteryManager" IsOn="True" Grid.Column="2" VerticalAlignment="Center" Toggled="EnableBatteryManagerChanged"/>
+                </Grid>
+                <TextBlock Text="Background Behaviors" FontWeight="SemiBold" FontSize="20" Margin="0,20,0,0"/>
+                <ContentControl Margin="0,10,0,0" IsTabStop="False" IsEnabled="{Binding IsOn, ElementName=EnableBatteryManager}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid Style="{StaticResource ExpanderGrid}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Viewbox Width="20" Height="20" HorizontalAlignment="Left">
+                            <Canvas Height="20" Width="20">
+                                <PathIcon Data="M20,10.63c0,0.35-0.12,0.64-0.37,0.89c-0.24,0.24-0.53,0.36-0.88,0.36H17.5v1.32c0,0.41-0.08,0.8-0.25,1.17   s-0.39,0.7-0.66,0.97c-0.28,0.28-0.6,0.5-0.97,0.66s-0.76,0.25-1.17,0.25h-2.9L10.92,15h3.46c0.25,0,0.5-0.05,0.72-0.15   s0.43-0.23,0.6-0.41c0.17-0.17,0.31-0.37,0.41-0.6c0.1-0.23,0.15-0.47,0.15-0.72V6.88c0-0.25-0.05-0.49-0.15-0.72   s-0.23-0.43-0.41-0.6s-0.37-0.31-0.6-0.41S14.63,5,14.38,5H3.12C2.87,5,2.63,5.05,2.4,5.15S1.97,5.38,1.8,5.55S1.49,5.92,1.4,6.15   S1.25,6.62,1.25,6.88v6.28l-0.79,1.59C0.15,14.25,0,13.71,0,13.12V6.81c0-0.41,0.08-0.8,0.25-1.17s0.39-0.69,0.66-0.97   S1.51,4.17,1.88,4s0.76-0.25,1.17-0.25h11.39c0.42,0,0.81,0.08,1.18,0.25s0.69,0.39,0.97,0.66s0.5,0.6,0.66,0.97   s0.25,0.76,0.25,1.17v0.44v0.88h1.25c0.17,0,0.33,0.03,0.48,0.1s0.28,0.16,0.4,0.27s0.21,0.25,0.27,0.4S20,9.21,20,9.38V10.63z    M11.24,18.75c0,0.17-0.03,0.33-0.1,0.48c-0.07,0.15-0.16,0.28-0.27,0.4c-0.11,0.11-0.25,0.21-0.4,0.27S10.16,20,9.99,20H1.25   c-0.17,0-0.33-0.03-0.48-0.1s-0.28-0.16-0.4-0.27c-0.11-0.11-0.21-0.25-0.27-0.4C0.03,19.08,0,18.92,0,18.75   c0-0.2,0.04-0.39,0.13-0.56L4.5,9.44c0.11-0.22,0.26-0.39,0.46-0.51s0.42-0.18,0.66-0.18s0.47,0.06,0.66,0.18s0.34,0.29,0.45,0.51   l4.38,8.75C11.2,18.36,11.24,18.55,11.24,18.75z M6.25,7.58c-0.1-0.03-0.21-0.05-0.31-0.06S5.74,7.5,5.62,7.5   c-0.49,0-0.93,0.12-1.32,0.37s-0.7,0.58-0.92,1.02L2.5,10.65V7.19c0-0.26,0.09-0.48,0.27-0.66s0.4-0.27,0.66-0.27h1.88   c0.26,0,0.48,0.09,0.66,0.27s0.27,0.4,0.27,0.66V7.58z M6.24,11.87c0-0.17-0.06-0.32-0.19-0.44c-0.12-0.12-0.27-0.19-0.44-0.19   S5.3,11.3,5.18,11.43c-0.12,0.12-0.19,0.27-0.19,0.44v3.76c0,0.17,0.06,0.32,0.19,0.44c0.12,0.12,0.27,0.19,0.44,0.19   s0.32-0.06,0.44-0.19c0.12-0.12,0.19-0.27,0.19-0.44V11.87z M6.24,18.12c0-0.18-0.06-0.32-0.18-0.44   c-0.12-0.12-0.27-0.18-0.44-0.18c-0.17,0-0.32,0.06-0.44,0.19c-0.12,0.12-0.19,0.27-0.19,0.44c0,0.17,0.06,0.32,0.19,0.44   c0.12,0.12,0.27,0.19,0.44,0.19s0.32-0.06,0.44-0.19C6.18,18.44,6.24,18.29,6.24,18.12z" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Canvas>
+                        </Viewbox>
+                        <Button Content="Show Low Battery Message At (%)" Style="{StaticResource TextBlockManipulator}" Grid.Column="1"/>
+                        <muxc:NumberBox x:Name="LowBatPerc" Minimum="0" Maximum="100" SmallChange="1" LargeChange="5" Value="25" ValidationMode="InvalidInputOverwritten" AcceptsExpression="False" SpinButtonPlacementMode="Inline" Grid.Column="2" VerticalAlignment="Center" ValueChanged="LowBatPercChanged"/>
+                    </Grid>
+                </ContentControl>
+                <ContentControl Margin="0,10,0,0" IsTabStop="False" IsEnabled="{Binding IsOn, ElementName=EnableBatteryManager}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid Style="{StaticResource ExpanderGrid}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Viewbox Width="20" Height="20" HorizontalAlignment="Left">
+                            <Canvas Height="20" Width="20">
+                                <PathIcon Data="M6.25,6.82c0,0.25-0.05,0.5-0.15,0.72c-0.1,0.23-0.23,0.43-0.41,0.6C5.53,8.32,5.33,8.45,5.1,8.55S4.63,8.7,4.38,8.7H3.75  v6.88c0,0.17-0.06,0.32-0.19,0.44c-0.12,0.12-0.27,0.19-0.44,0.19s-0.32-0.06-0.44-0.19c-0.12-0.12-0.19-0.27-0.19-0.44V8.7H1.88  c-0.25,0-0.5-0.05-0.72-0.15s-0.43-0.23-0.6-0.41c-0.17-0.17-0.31-0.37-0.41-0.6C0.05,7.32,0,7.08,0,6.82v-2.5  c0-0.14,0.03-0.25,0.08-0.34C0.14,3.9,0.21,3.84,0.3,3.8c0.09-0.04,0.19-0.07,0.29-0.08C0.7,3.7,0.81,3.7,0.92,3.7h0.33V1.82  c0-0.17,0.06-0.32,0.19-0.44C1.56,1.26,1.71,1.2,1.88,1.2s0.32,0.06,0.44,0.19C2.44,1.51,2.5,1.65,2.5,1.82V3.7h1.25V1.82  c0-0.17,0.06-0.32,0.19-0.44C4.06,1.26,4.21,1.2,4.38,1.2s0.32,0.06,0.44,0.19C4.94,1.51,5,1.65,5,1.82V3.7h0.33  c0.11,0,0.22,0.01,0.33,0.02C5.77,3.73,5.86,3.76,5.95,3.8c0.09,0.04,0.16,0.1,0.21,0.19c0.06,0.08,0.08,0.19,0.08,0.34V6.82z   M20,10.57c0,0.35-0.12,0.64-0.37,0.89c-0.24,0.24-0.53,0.36-0.88,0.36H17.5v1.32c0,0.41-0.08,0.8-0.25,1.17s-0.39,0.7-0.66,0.97  c-0.28,0.28-0.6,0.5-0.97,0.66s-0.76,0.25-1.17,0.25H5v-1.25h9.38c0.25,0,0.5-0.05,0.72-0.15s0.43-0.23,0.6-0.41  c0.17-0.17,0.31-0.37,0.41-0.6c0.1-0.23,0.15-0.47,0.15-0.72V6.82c0-0.25-0.05-0.49-0.15-0.72c-0.1-0.23-0.23-0.43-0.41-0.6  c-0.17-0.17-0.37-0.31-0.6-0.41s-0.47-0.15-0.72-0.15H7.5V3.7h6.94c0.42,0,0.81,0.08,1.18,0.25s0.69,0.39,0.97,0.66  c0.28,0.28,0.5,0.6,0.66,0.97s0.25,0.76,0.25,1.17v0.44v0.88h1.25c0.17,0,0.33,0.03,0.48,0.1c0.15,0.07,0.28,0.16,0.4,0.27  s0.21,0.25,0.27,0.4C19.97,8.99,20,9.15,20,9.32V10.57z M5,13.7V9.95h0.05c0.34,0,0.66-0.07,0.95-0.21s0.55-0.32,0.78-0.55  C7,8.97,7.17,8.7,7.3,8.4s0.2-0.62,0.2-0.95V6.2h2.81c0.26,0,0.48,0.09,0.66,0.27c0.18,0.18,0.27,0.4,0.27,0.66v5.62  c0,0.26-0.09,0.48-0.27,0.66c-0.18,0.18-0.4,0.27-0.66,0.27H5z" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Canvas>
+                        </Viewbox>
+                        <Button Content="Show Stop Charging Message At (%)" Style="{StaticResource TextBlockManipulator}" Grid.Column="1"/>
+                        <muxc:NumberBox x:Name="StopChargePerc" Minimum="0" Maximum="100" SmallChange="1" LargeChange="5" Value="90" ValidationMode="InvalidInputOverwritten" AcceptsExpression="False" SpinButtonPlacementMode="Inline" Grid.Column="2" VerticalAlignment="Center" ValueChanged="StopChargePercChanged"/>
+                    </Grid>
+                </ContentControl>
+                <TextBlock Text="Visual" FontWeight="SemiBold" FontSize="20" Margin="0,20,0,0"/>
+                <StackPanel Margin="0,10,0,0">
+                    <Grid Style="{StaticResource ExpanderGrid}" CornerRadius="4,4,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Viewbox Width="20" Height="20" HorizontalAlignment="Left">
+                            <Canvas Height="20" Width="20">
+                                <PathIcon Data="F1 M 3.056641 18.75 C 2.646484 18.75 2.255859 18.666992 1.884766 18.500977 C 1.513672 18.334961 1.189779 18.113607 0.913086 17.836914 C 0.636393 17.560221 0.415039 17.236328 0.249023 16.865234 C 0.083008 16.494141 0 16.103516 0 15.693359 L 0 4.306641 C 0 3.896484 0.083008 3.505859 0.249023 3.134766 C 0.415039 2.763672 0.636393 2.439779 0.913086 2.163086 C 1.189779 1.886395 1.513672 1.665039 1.884766 1.499023 C 2.255859 1.333008 2.646484 1.25 3.056641 1.25 L 16.943359 1.25 C 17.353516 1.25 17.744141 1.333008 18.115234 1.499023 C 18.486328 1.665039 18.810221 1.886395 19.086914 2.163086 C 19.363605 2.439779 19.584961 2.763672 19.750977 3.134766 C 19.916992 3.505859 20 3.896484 20 4.306641 L 20 15.693359 C 20 16.103516 19.916992 16.494141 19.750977 16.865234 C 19.584961 17.236328 19.363605 17.560221 19.086914 17.836914 C 18.810221 18.113607 18.486328 18.334961 18.115234 18.500977 C 17.744141 18.666992 17.353516 18.75 16.943359 18.75 Z M 16.875 17.5 C 17.128906 17.5 17.369791 17.451172 17.597656 17.353516 C 17.82552 17.255859 18.025715 17.120768 18.198242 16.948242 C 18.370768 16.775717 18.505859 16.575521 18.603516 16.347656 C 18.701172 16.119791 18.75 15.878906 18.75 15.625 L 18.75 4.375 C 18.75 4.121094 18.701172 3.880209 18.603516 3.652344 C 18.505859 3.42448 18.370768 3.224285 18.198242 3.051758 C 18.025715 2.879232 17.82552 2.744141 17.597656 2.646484 C 17.369791 2.548828 17.128906 2.5 16.875 2.5 L 3.125 2.5 C 2.871094 2.5 2.630208 2.548828 2.402344 2.646484 C 2.174479 2.744141 1.974284 2.879232 1.801758 3.051758 C 1.629232 3.224285 1.494141 3.42448 1.396484 3.652344 C 1.298828 3.880209 1.25 4.121094 1.25 4.375 L 1.25 15.625 C 1.25 15.878906 1.298828 16.119791 1.396484 16.347656 C 1.494141 16.575521 1.629232 16.775717 1.801758 16.948242 C 1.974284 17.120768 2.174479 17.255859 2.402344 17.353516 C 2.630208 17.451172 2.871094 17.5 3.125 17.5 Z M 3.125 8.75 C 2.955729 8.75 2.809245 8.688151 2.685547 8.564453 C 2.561849 8.440756 2.5 8.294271 2.5 8.125 L 2.5 4.375 C 2.5 4.20573 2.561849 4.059246 2.685547 3.935547 C 2.809245 3.81185 2.955729 3.75 3.125 3.75 L 16.875 3.75 C 17.04427 3.75 17.190754 3.81185 17.314453 3.935547 C 17.43815 4.059246 17.5 4.20573 17.5 4.375 L 17.5 8.125 C 17.5 8.294271 17.43815 8.440756 17.314453 8.564453 C 17.190754 8.688151 17.04427 8.75 16.875 8.75 Z M 3.75 5 L 3.75 7.5 L 16.25 7.5 L 16.25 5 Z M 11.875 16.25 C 11.705729 16.25 11.559244 16.188152 11.435547 16.064453 C 11.311849 15.940756 11.25 15.794271 11.25 15.625 L 11.25 10.625 C 11.25 10.455729 11.311849 10.309245 11.435547 10.185547 C 11.559244 10.06185 11.705729 10 11.875 10 L 16.875 10 C 17.04427 10 17.190754 10.06185 17.314453 10.185547 C 17.43815 10.309245 17.5 10.455729 17.5 10.625 L 17.5 15.625 C 17.5 15.794271 17.43815 15.940756 17.314453 16.064453 C 17.190754 16.188152 17.04427 16.25 16.875 16.25 Z M 3.125 12.5 C 2.955729 12.5 2.809245 12.438151 2.685547 12.314453 C 2.561849 12.190756 2.5 12.044271 2.5 11.875 C 2.5 11.705729 2.561849 11.559245 2.685547 11.435547 C 2.809245 11.31185 2.955729 11.25 3.125 11.25 L 9.384766 11.25 C 9.554036 11.25 9.700521 11.31185 9.824219 11.435547 C 9.947916 11.559245 10.009766 11.705729 10.009766 11.875 C 10.009766 12.044271 9.947916 12.190756 9.824219 12.314453 C 9.700521 12.438151 9.554036 12.5 9.384766 12.5 Z M 12.5 11.25 L 12.5 15 L 16.25 15 L 16.25 11.25 Z M 3.125 15 C 2.955729 15 2.809245 14.938151 2.685547 14.814453 C 2.561849 14.690756 2.5 14.544271 2.5 14.375 C 2.5 14.205729 2.561849 14.059245 2.685547 13.935547 C 2.809245 13.81185 2.955729 13.75 3.125 13.75 L 9.384766 13.75 C 9.554036 13.75 9.700521 13.81185 9.824219 13.935547 C 9.947916 14.059245 10.009766 14.205729 10.009766 14.375 C 10.009766 14.544271 9.947916 14.690756 9.824219 14.814453 C 9.700521 14.938151 9.554036 15 9.384766 15 Z " VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Canvas>
+                        </Viewbox>
+                        <Button Content="Use Modern Message Box Style" Style="{StaticResource TextBlockManipulator}" Grid.Column="1"/>
+                        <ToggleSwitch x:Name="UseModernBox" IsOn="True" Grid.Column="2" VerticalAlignment="Center" Toggled="UseModernBoxChanged"/>
+                    </Grid>
+                    <muxc:InfoBar IsTabStop="False" Title="Note: " Message="When displayed, the modern style message box uses more memory." CornerRadius="0,0,4,4" IsOpen="True" IsClosable="False" Severity="Informational" Background="{ThemeResource ExpanderHeaderBackground}" BorderBrush="{ThemeResource ExpanderContentBorderBrush}"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

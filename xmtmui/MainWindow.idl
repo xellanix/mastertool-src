@@ -1,0 +1,13 @@
+namespace xmtmui
+{
+    [default_interface]
+    runtimeclass MainWindow : Windows.UI.Xaml.Controls.Page
+    {
+        MainWindow();
+        String DownloadedUpdatePath{ get; };
+        UInt64 DownloadedUpdateSize{ get; };
+
+        void StartArguments(String args);
+        void TryInstallUpdate();
+    }
+}
