@@ -361,3 +361,8 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/make_final.bat
+/MasterTools - Shortcut.lnk
+/Regex Doc.docx
+/certificate_key.txt
+/backbehav/Tester.xlsx
